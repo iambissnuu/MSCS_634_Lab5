@@ -2,7 +2,7 @@
 ## Clustering using Hierarchical and DBSCAN Algorithms  
 
 ## Overview  
-This lab focuses on applying clustering techniques using Hierarchical Clustering and DBSCAN on the Wine dataset from sklearn. The objective is to analyze how different clustering algorithms group data, understand the impact of parameter selection, and evaluate clustering performance using appropriate metrics and visualizations.  
+This lab explores clustering techniques using Hierarchical Clustering and DBSCAN on the Wine dataset. The objective is to analyze clustering performance, evaluate parameter sensitivity, and understand how dataset characteristics influence algorithm effectiveness.  
 
 ## Methods Used  
 - Agglomerative Hierarchical Clustering  
@@ -13,20 +13,20 @@ This lab focuses on applying clustering techniques using Hierarchical Clustering
 ## Evaluation Metrics  
 - Silhouette Score – Measures cluster separation  
 - Homogeneity Score – Measures cluster purity  
-- Completeness Score – Measures how well all members of a class are assigned to the same cluster  
+- Completeness Score – Measures how well members of a class are grouped together  
 
 ## Key Insights  
-- Hierarchical clustering produced well-defined clusters, especially when n_clusters = 3, aligning with the dataset structure.  
-- The dendrogram provided insight into hierarchical relationships between data points.  
-- DBSCAN identified noise points without requiring a predefined number of clusters.  
-- DBSCAN performance was sensitive to parameter selection, particularly eps.  
-- Hierarchical clustering achieved better cluster separation compared to DBSCAN for this dataset.  
+- Hierarchical clustering produced well-defined clusters with strong separation, aligning closely with the dataset’s inherent structure.  
+- DBSCAN showed high sensitivity to the eps parameter, with smaller values resulting in excessive noise and larger values causing cluster merging.  
+- No optimal eps value was found that produced meaningful cluster separation for this dataset.  
+- DBSCAN resulted in high completeness but low homogeneity, indicating poor separation between classes despite grouping data points together.  
+- The Wine dataset contains compact and well-separated clusters, making it more suitable for distance-based methods rather than density-based approaches.  
 
 ## Challenges and Decisions  
-- Selecting optimal parameters for DBSCAN required experimentation.  
-- Noise points affected evaluation metrics such as the silhouette score.  
-- PCA was used to reduce dimensionality for visualization.  
-- The choice of n_clusters = 3 was based on dendrogram analysis and evaluation metrics.  
+- Selecting appropriate eps values for DBSCAN required experimentation due to sensitivity in high-dimensional space.  
+- Initial parameter choices resulted in all data points being classified as noise, requiring adjustment of eps values.  
+- PCA was used to reduce dimensionality for visualization purposes.  
+- The selection of n_clusters = 3 for hierarchical clustering was based on silhouette scores and dendrogram interpretation.  
 
 ## Repository Contents  
 - Lab5_Clustering.ipynb – Jupyter Notebook with implementation and analysis  
